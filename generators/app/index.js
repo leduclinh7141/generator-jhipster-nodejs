@@ -174,7 +174,7 @@ module.exports = class extends AppGenerator {
                 } else {
                     try {
                         this.log(chalk.bold('\nInstalling server dependencies using npm'));
-                        this.spawnCommandSync('npm', ['install --legacy-peer-deps'], { cwd: `${process.cwd()}/server` });
+                        this.spawnCommandSync('npm', ['install', '--legacy-peer-deps'], { cwd: `${process.cwd()}/server` });
                     } catch (e) {
                         this.warning('Install of server dependencies failed!');
                         this.log(logMsg);
