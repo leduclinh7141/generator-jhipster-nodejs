@@ -28,7 +28,7 @@ _%>
 export class <%= entityClass %>Service {
     logger = new Logger('<%= entityClass %>Service');
 
-    constructor(@Inject(<%= entityClass %>Repository) private <%= asEntity(entityInstance) %>Repository: <%= entityClass %>Repository) {}
+    constructor(@InjectRepository(<%= entityClass %>Repository) private <%= asEntity(entityInstance) %>Repository: <%= entityClass %>Repository) {}
 
       async findById(id: <%= pkType %>): Promise<<%= asDto(entityClass) %> | undefined> {
         const options = { where: { id }, relations: relationshipNames };

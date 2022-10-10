@@ -196,7 +196,6 @@
     "cypress": "cypress open",
     <%_ } _%>
     <%_ if (protractorTests) { _%>
-    "postinstall": "<%= clientPackageManager %> run e2e:update-webdriver",
     "e2e:update-webdriver": "webdriver-manager update --gecko false",
     <%_ } _%>
     "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
@@ -205,7 +204,7 @@
     "start:app": "<%= clientPackageManager %> run build && cd server && <%= clientPackageManager %> run start",
     "start-tls": "<%= clientPackageManager %> run webapp:dev -- --env.tls",
     <%_ if (!skipServer) { _%>
-    "preinstall": "cd server && npm run lint:fix",
+    "preinstall": "cd server",
     <%_ } _%>
     <%_ if (skipServer) { _%>
     "sonar": "sonar-scanner",

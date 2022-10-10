@@ -51,7 +51,7 @@
   "scripts": {
     "build:app": "cd server && <%= clientPackageManager %> run build",
     "lint:fix": "echo \"INFO: no client found\"",
-    "preinstall": "cd server && npm run lint:fix",
+    "preinstall": "cd server",
     "prettier:check": "prettier --check \"{,src/**/}*.{<%= getPrettierExtensions() %>}\"",
     "prettier:format": "prettier --write \"{,src/**/}*.{<%= getPrettierExtensions() %>}\"",
     "start:app": "cd server && <%= clientPackageManager %> run start",

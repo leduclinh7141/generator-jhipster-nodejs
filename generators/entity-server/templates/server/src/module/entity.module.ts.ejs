@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmExModule } from './typeorm-ex/typeorm-ex.module';
+import { <%= asEntity(entityClass) %> } from '../domain/<%= entityFileName %>.entity';
 import { <%= entityClass %>Controller } from '../web/rest/<%= entityFileName %>.controller';
 import { <%= entityClass %>Repository } from '../repository/<%= entityFileName %>.repository';
 import { <%= entityClass %>Service } from '../service/<%= entityFileName %>.service';

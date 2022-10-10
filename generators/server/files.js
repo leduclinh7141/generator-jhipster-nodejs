@@ -17,6 +17,8 @@ const serverFiles = {
                 'src/web/rest/management.controller.ts',
                 'src/repository/user.repository.ts',
                 'src/repository/authority.repository.ts',
+                'src/module/typeorm-ex/typeorm-ex.decorator.ts',
+                'src/module/typeorm-ex/typeorm-ex.module.ts',
                 'src/module/user.module.ts',
                 'src/module/auth.module.ts',
                 'src/config/application-dev.yml',
