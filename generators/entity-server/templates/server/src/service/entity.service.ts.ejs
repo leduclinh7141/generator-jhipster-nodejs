@@ -28,11 +28,11 @@ _%>
 export class <%= entityClass %>Service {
     logger = new Logger('<%= entityClass %>Service');
 
-    constructor(@InjectRepository(<%= entityClass %>Repository) private <%= asEntity(entityInstance) %>Repository: <%= entityClass %>Repository) {}
+    constructor(@Inject(<%= entityClass %>Repository) private <%= asEntity(entityInstance) %>Repository: <%= entityClass %>Repository) {}
 
       async findById(id: <%= pkType %>): Promise<<%= asDto(entityClass) %> | undefined> {
-        const options = { relations: relationshipNames };
-        const result = await this.<%= asEntity(entityInstance) %>Repository.findOne(id, options);
+        const options = { where: { id }, relations: relationshipNames };
+        const result = await this.<%= asEntity(entityInstance) %>Repository.findOne(options);
         return <%= entityClass %>Mapper.fromEntityToDTO(result);
       }
 

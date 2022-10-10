@@ -80,11 +80,11 @@ async function loadCloudConfig(): Promise<void> {
           //   pass: config.get('jhipster.registry.password') || 'admin'
           // }
       }, (err, cloudConfig) => {
-          if (cloudConfig) {
-              config.addAll(cloudConfig.properties());
-          } else if (err) {
-              logger.error('Unable to access cloud config');
-          }
+          // if (cloudConfig) {
+          //    config.addAll(cloudConfig.properties());
+          // } else if (err) {
+          //    logger.error('Unable to access cloud config');
+          // }
       });
       
   }

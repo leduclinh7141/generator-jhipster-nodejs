@@ -4,9 +4,13 @@ import { ManagementController } from '../web/rest/management.controller';
 import { UserRepository } from '../repository/user.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserService } from '../service/user.service';
-
+import { User } from '../domain/user.entity';
+import { TypeOrmExModule } from './typeorm-ex/typeorm-ex.module';
 @Module({
-  imports: [TypeOrmModule.forFeature([UserRepository])],
+  imports: [
+    TypeOrmModule.forFeature([User]),
+    TypeOrmExModule.forCustomRepository([UserRepository]),
+  ],
   controllers: [UserController, ManagementController],
   providers: [UserService],
   exports: [UserService],

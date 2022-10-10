@@ -19,9 +19,10 @@ import { AuthorityRepository } from '../repository/authority.repository';
 
 import { PublicUserController } from '../web/rest/public.user.controller';
 import { AccountController } from '../web/rest/account.controller';
-
+import { Authority } from '../domain/authority.entity';
+import { TypeOrmExModule } from './typeorm-ex/typeorm-ex.module';
 @Module({
-  imports: [TypeOrmModule.forFeature([AuthorityRepository]),
+  imports: [TypeOrmModule.forFeature([Authority]),
   UserModule,
   PassportModule,
   <%_ if (authenticationType === 'jwt') { _%>
@@ -29,6 +30,7 @@ import { AccountController } from '../web/rest/account.controller';
       secret: config['jhipster.security.authentication.jwt.base64-secret'],
       signOptions: { expiresIn: '300s' },
     }),
+    TypeOrmExModule.forCustomRepository([AuthorityRepository]),
   <%_ } else if (authenticationType === 'oauth2') { _%>
   HttpModule,
   <%_ } _%>
